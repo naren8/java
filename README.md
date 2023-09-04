@@ -24,7 +24,7 @@ https://grey-comet-7429.postman.co/workspace/public~9f5c5886-619d-41e3-bf40-10da
 2. Build project by running `./gradlew clean build`
 3. Run server `./gradlew bootRun`
 
-## Endpoints
+## Endpoints examlples
 ### Create task
 ```
 curl --location 'http://localhost:8080/v1/tasks' \
@@ -39,6 +39,27 @@ curl --location 'http://localhost:8080/v1/tasks' \
 ### Get task list
 ```
 curl --location 'http://localhost:8080/v1/tasks' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4='
+```
+### Get task
+```
+curl --location 'http://localhost:8080/v1/tasks/3' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4='
+```
+### Update task
+```
+curl --location --request PUT 'http://localhost:8080/v1/tasks/3' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+--data '{
+    "title": "first task - udpated",
+    "description":"first task description - update",
+    "completed": true
+}'
+```
+### Delete task
+```
+curl --location --request DELETE 'http://localhost:8080/v1/tasks/2' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4='
 ```
 
